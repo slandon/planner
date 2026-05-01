@@ -54,8 +54,11 @@ calendar.style.gap = "10px";
 noteDiv.style.margin = "10px 0";
 noteDiv.style.fontWeight = "bold";
 
+const mileageDiv = document.createElement("div");
+
 document.body.appendChild(select);
 document.body.appendChild(noteDiv);
+document.body.appendChild(mileageDiv);
 document.body.appendChild(calendar);
 
 // --- DROPDOWN ---
@@ -69,9 +72,17 @@ trainingPlan.forEach((w, i) => {
 // --- RENDER FUNCTION ---
 function renderWeek(index) {
   const week = trainingPlan[index];
+  let totalMileage = 0;
+
+week.days.forEach(day => {
+  const match = day.match(/[\d.]+/);
+  if (match) {
+    totalMileage += parseFloat(match[0]);
+  }
+});
   calendar.innerHTML = "";
   noteDiv.innerText = week.note ? week.note : "";
-
+mileageDiv.innerText = `Weekly Mileage: ${totalMileage.toFixed(1)} mi`;
   week.days.forEach((day, i) => {
     const div = document.createElement("div");
 
