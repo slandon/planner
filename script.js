@@ -2,18 +2,18 @@ const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 // --- PHASE 1 + 2 ---
 const trainingPlan = [
-  { week: 1, days: ["3 mi", "PT", "3 mi + strength", "Recovery", "2.5 mi", "Rest", "4.5 mi"] },
-  { week: 2, days: ["3 mi", "PT", "3.5 mi + strength", "Recovery", "2.5 mi", "Rest", "5 mi"] },
-  { week: 3, days: ["3 mi", "PT", "3.5 mi + strength", "Recovery", "3 mi", "Rest", "5 mi"] },
-  { week: 4, note: "Cutback", days: ["2.5 mi", "PT", "3 mi + light strength", "Recovery", "2 mi", "Rest", "4 mi"] },
-  { week: 5, days: ["3.5 mi", "PT", "4 mi + strength", "Recovery", "3 mi", "Rest", "5.5 mi"] },
-  { week: 6, days: ["3.5 mi", "PT", "4 mi + strength", "Recovery", "3 mi", "Rest", "6 mi"] },
-  { week: 7, days: ["4 mi", "PT", "4 mi + strength", "Recovery", "3 mi", "Rest", "6 mi"] },
-  { week: 8, days: ["4 mi", "PT", "4.5 mi + strength", "Recovery", "3 mi", "Rest", "6.5 mi"] },
-  { week: 9, days: ["4.5 mi", "PT", "4.5 mi + strength", "Recovery", "3–3.5 mi (5:1 test)", "Rest", "7 mi"] },
-  { week: 10, note: "Cutback", days: ["3.5 mi", "PT", "4 mi + strength", "Recovery", "3 mi", "Rest", "5.5 mi"] },
-  { week: 11, days: ["4.5 mi", "PT", "5 mi + strength", "Recovery", "3.5 mi", "Rest", "7.5 mi"] },
-  { week: 12, days: ["4.5 mi", "PT", "5 mi + strength", "Recovery", "3.5 mi", "Rest", "8 mi"] }
+  { week: 1, days: ["3 mi", "PT", "3 mi + strength", "Recovery + mobility", "2.5 mi", "Rest", "4.5 mi"] },
+  { week: 2, days: ["3 mi", "PT", "3.5 mi + strength", "Recovery + mobility", "2.5 mi", "Rest", "5 mi"] },
+  { week: 3, days: ["3 mi", "PT", "3.5 mi + strength", "Recovery + mobility", "3 mi", "Rest", "5 mi"] },
+  { week: 4, note: "Cutback", days: ["2.5 mi", "PT", "3 mi + light strength", "Recovery + mobility", "2 mi", "Rest", "4 mi"] },
+  { week: 5, days: ["3.5 mi", "PT", "4 mi + strength", "Recovery + mobility", "3 mi", "Rest", "5.5 mi"] },
+  { week: 6, days: ["3.5 mi", "PT", "4 mi + strength", "Recovery + mobility", "3 mi", "Rest", "6 mi"] },
+  { week: 7, days: ["4 mi", "PT", "4 mi + strength", "Recovery + mobility", "3 mi", "Rest", "6 mi"] },
+  { week: 8, days: ["4 mi", "PT", "4.5 mi + strength", "Recovery + mobility", "3 mi", "Rest", "6.5 mi"] },
+  { week: 9, days: ["4.5 mi", "PT", "4.5 mi + strength", "Recovery + mobility", "3–3.5 mi (5:1 test)", "Rest", "7 mi"] },
+  { week: 10, note: "Cutback", days: ["3.5 mi", "PT", "4 mi + strength", "Recovery + mobility", "3 mi", "Rest", "5.5 mi"] },
+  { week: 11, days: ["4.5 mi", "PT", "5 mi + strength", "Recovery + mobility", "3.5 mi", "Rest", "7.5 mi"] },
+  { week: 12, days: ["4.5 mi", "PT", "5 mi + strength", "Recovery + mobility", "3.5 mi", "Rest", "8 mi"] }
 ];
 
 // --- PHASE 3 ---
