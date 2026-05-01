@@ -122,10 +122,15 @@ function renderWeek(index) {
   calendar.innerHTML = "";
   noteDiv.innerText = week.note ? week.note : "";
 
-  week.days.forEach((day, i) => {
-    const div = document.createElement("div");
-    div.style.border = "1px solid #ccc";
-    div.style.padding = "10px";
+week.days.forEach((day, i) => {
+  const div = document.createElement("div");
+
+  const todayIndex = new Date().getDay(); // 0 = Sunday
+  const adjustedToday = (todayIndex + 6) % 7; // shift so Monday = 0
+
+  if (i === adjustedToday) {
+    div.style.border = "2px solid #000";
+  }
 
     // highlight long run
     if (i === 6) {
