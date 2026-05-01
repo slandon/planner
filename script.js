@@ -129,13 +129,18 @@ week.days.forEach((day, i) => {
   const adjustedToday = (todayIndex + 6) % 7; // shift so Monday = 0
 
   if (i === adjustedToday) {
-    div.style.border = "2px solid #000";
-  }
+ div.style.border = "1px solid #ccc";
+div.style.padding = "10px";
+div.style.borderRadius = "8px";
 
-    // highlight long run
-    if (i === 6) {
-      div.style.backgroundColor = "#e6f2ff";
-    }
+// color coding
+if (day.includes("mi") && i === 6) {
+  div.style.backgroundColor = "#e6f2ff"; // long run (Sunday)
+} else if (day.includes("PT")) {
+  div.style.backgroundColor = "#f0f0f0"; // PT day
+} else if (day.includes("Recovery") || day.includes("Rest")) {
+  div.style.backgroundColor = "#fafafa"; // rest/recovery
+}
 
     div.innerHTML = `<strong>${daysOfWeek[i]}</strong><br>${day}`;
     calendar.appendChild(div);
