@@ -1,3 +1,18 @@
+const startDate = new Date("2026-04-27");
+function getWeekRange(weekNumber) {
+  const start = new Date(startDate);
+  start.setDate(start.getDate() + (weekNumber - 1) * 7);
+
+  const end = new Date(start);
+  end.setDate(start.getDate() + 6);
+
+  const options = { month: "short", day: "numeric" };
+
+  const startStr = start.toLocaleDateString("en-US", options);
+  const endStr = end.toLocaleDateString("en-US", options);
+
+  return `${startStr} – ${endStr}`;
+}
 const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 // --- PHASE 1 + 2 ---
@@ -65,7 +80,7 @@ document.body.appendChild(calendar);
 trainingPlan.forEach((w, i) => {
   const option = document.createElement("option");
   option.value = i;
-  option.text = `Week ${w.week}`;
+ option.text = `Week ${w.week} (${getWeekRange(w.week)})`;
   select.appendChild(option);
 });
 
