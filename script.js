@@ -70,6 +70,7 @@ const dateDiv = document.createElement("div");
 const noteDiv = document.createElement("div");
 const mileageDiv = document.createElement("div");
 const calendar = document.createElement("div");
+calendar.className = "calendar";
 const detailsDiv = document.createElement("div");
 detailsDiv.style.marginTop = "20px";
 detailsDiv.style.padding = "15px";
@@ -139,8 +140,8 @@ div.addEventListener("click", () => {
   const todayIndex = (new Date().getDay() + 6) % 7;
 
   week.days.forEach((day, i) => {
-    const div = document.createElement("div");
-    div.className = "day";
+const div = document.createElement("div");
+div.className = "day";
 
     // highlight today
     div.style.border = i === todayIndex ? "2px solid black" : "1px solid #ccc";
