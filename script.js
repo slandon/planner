@@ -118,7 +118,8 @@ function renderWeek(index) {
     const div = document.createElement("div");
     div.className = "day";
     if (i === todayIndex) {
-  div.style.border = "2px solid black";
+  div.style.border = "2px solid #2e7d32";
+  div.style.backgroundColor = "#e8f5e9";
 } else {
   div.style.border = "1px solid #ccc";
 }
