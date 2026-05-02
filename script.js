@@ -32,12 +32,39 @@ Curl the weight, then press overhead. Reverse and repeat, then switch sides.<br>
 Balance on one leg, hinge forward into a “T” shape, then return to standing. Repeat, then switch sides.
 `;
 
-const mobilityRoutine = [
-  "Hip flexor stretch – 1 min each side",
-  "Hamstring stretch – 1 min",
-  "Glute stretch – 1 min each side",
-  "Ankle mobility – 10 reps each side"
-];
+const mobilityRoutine = `
+<strong>Mobility Routine</strong><br><br>
+
+<strong>1. Adductor Rockbacks</strong><br>
+• Start on hands and knees, one leg extended out to the side<br>
+• Rock hips back slowly<br>
+2 sets of 8–10 reps each side<br><br>
+
+<strong>2. 90/90 Hip Rotations</strong><br>
+• Sit in 90/90 position<br>
+• Rotate knees side to side (controlled, no forcing)<br>
+2 sets of 6–8 reps per side<br><br>
+
+<strong>3. Standing Hip CARs (Controlled Circles)</strong><br>
+• Lift one knee, move it in a slow circle<br>
+• Keep torso stable<br>
+5 slow circles each direction per leg<br><br>
+
+<strong>4. Glute Bridge (light activation)</strong><br>
+• Feet on floor, lift hips slowly<br>
+• Pause at top<br>
+2 sets of 10 reps<br><br>
+
+<strong>5. Side-Lying Adductor Lift</strong><br>
+• Bottom leg straight, top leg bent over<br>
+• Lift the bottom leg slightly<br>
+2 sets of 8–10 reps (easy effort)<br><br>
+
+<strong>6. Gentle Inner Thigh Stretch</strong><br>
+• Butterfly stretch or side lunge hold<br>
+• No aggressive pushing<br>
+Hold 20–30 seconds
+`;
 
 const startDate = new Date("2026-04-27");
 const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -159,12 +186,9 @@ div.addEventListener("click", () => {
   <strong>Strength Routine</strong><br><br>
   ${strengthRoutine}
 `;
-  } else if (day.includes("Recover")) {
-    detailsDiv.innerHTML = `
-      <strong>Mobility Routine</strong><br><br>
-      ${mobilityRoutine.map(e => `• ${e}`).join("<br>")}
-    `;
-  } else {
+} else if (day.includes("Recover")) {
+  detailsDiv.innerHTML = mobilityRoutine;
+} else {
     detailsDiv.innerHTML = `<strong>${day}</strong>`;
   }
 });
