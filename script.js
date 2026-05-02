@@ -111,7 +111,7 @@ function getCurrentWeekIndex() {
 }
 
 // --- TRAINING PLAN ---
-const trainingPlan = [
+
  const trainingPlan = [
   { week: 1, days: ["3 mi", "PT", "3 mi + strength", "Recovery/mobility", "2.5 mi", "Rest", "4.5 mi"] },
   { week: 2, days: ["3 mi", "PT", "3.5 mi + strength", "Recovery/mobility", "2.5 mi", "Rest", "5 mi"] },
