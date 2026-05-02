@@ -155,10 +155,10 @@ div.style.cursor = "pointer";
 
 div.addEventListener("click", () => {
   if (day.includes("strength")) {
-    detailsDiv.innerHTML = `
-      <strong>Strength Routine</strong><br><br>
-      ${strengthRoutine.map(e => `• ${e}`).join("<br>")}
-    `;
+   detailsDiv.innerHTML = `
+  <strong>Strength Routine</strong><br><br>
+  ${strengthRoutine}
+`;
   } else if (day.includes("Recover")) {
     detailsDiv.innerHTML = `
       <strong>Mobility Routine</strong><br><br>
