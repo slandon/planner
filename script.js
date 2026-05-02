@@ -147,27 +147,23 @@ function renderFullPlan() {
   const grid = document.createElement("div");
   grid.className = "full-grid";
 
-  const currentWeekIndex = getCurrentWeekIndex();
-
   const rawIndex = getCurrentWeekIndex();
-const safeIndex = Math.max(0, Math.min(rawIndex, trainingPlan.length - 1));
-  
+  const safeIndex = Math.max(0, Math.min(rawIndex, trainingPlan.length - 1));
+
   trainingPlan.forEach((week, index) => {
     const row = document.createElement("div");
     row.className = "full-row";
-if (index === safeIndex) {
-  row.classList.add("current-week");
-}
-    const rawIndex = getCurrentWeekIndex();
-const safeIndex = Math.max(0, Math.min(rawIndex, trainingPlan.length - 1));
-    if (index === currentWeekIndex) {
+
+    // highlight current week
+    if (index === safeIndex) {
       row.classList.add("current-week");
     }
 
+    // calculate mileage
     let total = 0;
-    week.days.forEach(d => {
-      const m = d.match(/[\d.]+/);
-      if (m) total += parseFloat(m[0]);
+    week.days.forEach(day => {
+      const match = day.match(/[\d.]+/);
+      if (match) total += parseFloat(match[0]);
     });
 
     const label = document.createElement("div");
@@ -180,12 +176,13 @@ const safeIndex = Math.max(0, Math.min(rawIndex, trainingPlan.length - 1));
       const cell = document.createElement("div");
       cell.className = "full-cell";
 
-      cell.innerText = day
+      const short = day
         .replace(" mi", "")
         .replace("Recovery/mobility", "Rec")
         .replace("Rest", "R")
         .replace(" + strength", "+S");
 
+      cell.innerText = short;
       row.appendChild(cell);
     });
 
