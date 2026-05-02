@@ -159,6 +159,10 @@ headerCard.appendChild(mileageDiv);
 app.appendChild(headerCard);
 app.appendChild(calendar);
 app.appendChild(detailsDiv);
+const fullPlanDiv = document.createElement("div");
+fullPlanDiv.style.marginTop = "40px";
+
+app.appendChild(fullPlanDiv);
 
 // dropdown
 trainingPlan.forEach((w, i) => {
@@ -176,7 +180,43 @@ function getCurrentWeekIndex() {
 }
 function renderWeek(index) {
   const week = trainingPlan[index];
+function renderFullPlan() {
+  fullPlanDiv.innerHTML = "<h3>Full Training Plan</h3>";
 
+  const grid = document.createElement("div");
+  grid.className = "full-grid";
+
+  trainingPlan.forEach((week) => {
+    const row = document.createElement("div");
+    row.className = "full-row";
+
+    const label = document.createElement("div");
+    label.className = "full-week";
+    label.innerText = `W${week.week}`;
+
+    row.appendChild(label);
+
+    week.days.forEach(day => {
+      const cell = document.createElement("div");
+      cell.className = "full-cell";
+
+      // shorten text for compact view
+      let short = day
+        .replace(" mi", "")
+        .replace("Recovery/mobility", "Rec")
+        .replace("Rest", "R")
+        .replace("PT", "PT")
+        .replace(" + strength", "+S");
+
+      cell.innerText = short;
+      row.appendChild(cell);
+    });
+
+    grid.appendChild(row);
+  });
+
+  fullPlanDiv.appendChild(grid);
+}
   // header
 const currentWeekIndex = getCurrentWeekIndex();
 
@@ -242,3 +282,4 @@ select.value = safeIndex;
 // render it
 renderWeek(safeIndex);
 updateCountdown();
+renderFullPlan();
