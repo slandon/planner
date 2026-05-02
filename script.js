@@ -1,9 +1,36 @@
-const strengthRoutine = [
-  "Squats – 3x8",
-  "Deadlifts – 3x6",
-  "Lunges – 3x10 each leg",
-  "Core (planks) – 3x45s"
-];
+const strengthRoutine = `
+<strong>Two sets of 10 each (except planks)</strong><br><br>
+
+<strong>1. Plank</strong><br>
+Hold the top of a push-up, shoulders stacked over wrists; back flat (no sagging or hiking up your hips); and abs, thighs and butt engaged. Gaze a few inches in front of your hands. Hold for as long as you can. That’s 1 rep. Repeat.<br><br>
+
+<strong>2. Squat</strong><br>
+Stand with your feet hip-width apart and toes slightly turned out. Push your hips back and bend your knees wide to lower into a squat until your hip crease is below your knees. Push through your feet to return to start.<br><br>
+
+<strong>3. Lateral Box Push-Ups</strong><br>
+Kneel beside a box. One hand on the box, one on the floor. Lower into a push-up, then move across the box while maintaining plank position. Alternate sides.<br><br>
+
+<strong>4. Elevated Split Squat</strong><br>
+Stand in front of a box, one foot elevated behind. Lower until back knee nearly touches floor. Repeat, then switch sides.<br><br>
+
+<strong>5. Bicycle Crunch</strong><br>
+Lie on your back, rotate torso bringing opposite elbow to knee while extending the other leg. Alternate sides.<br><br>
+
+<strong>6. Single-Leg Glute Bridge</strong><br>
+Lift hips with one leg extended, forming a straight line from shoulders to knee. Repeat, then switch sides.<br><br>
+
+<strong>7. Lateral Step-Up</strong><br>
+Step onto a box sideways, drive through the working leg, then lower back down. Switch sides.<br><br>
+
+<strong>8. One-Arm Bent-Over Row</strong><br>
+Hinge forward and row the weight toward your ribs. Lower and repeat, then switch sides.<br><br>
+
+<strong>9. Kneeling Curl to Press</strong><br>
+Curl the weight, then press overhead. Reverse and repeat, then switch sides.<br><br>
+
+<strong>10. Single-Leg Romanian Deadlift</strong><br>
+Balance on one leg, hinge forward into a “T” shape, then return to standing. Repeat, then switch sides.
+`;
 
 const mobilityRoutine = [
   "Hip flexor stretch – 1 min each side",
