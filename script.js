@@ -204,17 +204,15 @@ function renderWeek(index) {
 }
     div.style.cursor = "pointer";
 
-   div.addEventListener("click", () => {
+ div.addEventListener("click", () => {
   const progress = getProgress();
-  const key = `${index}-${i}`; // week-day key
+  const key = `${index}-${i}`;
 
-  // toggle
   progress[key] = !progress[key];
-
   saveProgress(progress);
 
-  // re-render week to update UI
   renderWeek(index);
+  renderFullPlan(); // 👈 THIS is what was missing
 });
    
 
