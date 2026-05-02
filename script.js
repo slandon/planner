@@ -70,6 +70,16 @@ const startDate = new Date("2026-04-27");
 const raceDate = new Date("2026-11-01");
 const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
+const STORAGE_KEY = "marathonProgress";
+
+function getProgress() {
+  return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+}
+
+function saveProgress(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
 // --- HELPERS ---
 function updateCountdown() {
   const today = new Date();
@@ -194,15 +204,25 @@ function renderWeek(index) {
 }
     div.style.cursor = "pointer";
 
-    div.addEventListener("click", () => {
-      if (day.includes("strength")) {
-        detailsDiv.innerHTML = `<strong>Strength Routine</strong><br><br>${strengthRoutine}`;
-      } else if (day.includes("Recover")) {
-        detailsDiv.innerHTML = mobilityRoutine;
-      } else {
-        detailsDiv.innerHTML = `<strong>${day}</strong>`;
-      }
-    });
+   div.addEventListener("click", () => {
+  const progress = getProgress();
+  const key = `${index}-${i}`; // week-day key
+
+  // toggle
+  progress[key] = !progress[key];
+
+  saveProgress(progress);
+
+  // re-render week to update UI
+  renderWeek(index);
+});
+    const progress = getProgress();
+const key = `${index}-${i}`;
+
+if (progress[key]) {
+  div.style.opacity = "0.5";
+  div.style.textDecoration = "line-through";
+}
 
     div.innerHTML = `<strong>${daysOfWeek[i]}</strong><br>${day}`;
     calendar.appendChild(div);
