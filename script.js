@@ -227,7 +227,7 @@ function renderFullPlan() {
 
   const grid = document.createElement("div");
   grid.className = "full-grid";
-
+const progress = getProgress();
   const rawIndex = getCurrentWeekIndex();
   const safeIndex = Math.max(0, Math.min(rawIndex, trainingPlan.length - 1));
 
@@ -263,7 +263,6 @@ row.addEventListener("click", () => {
     week.days.forEach((day, dayIndex) => {
       const cell = document.createElement("div");
       cell.className = "full-cell";
-const progress = getProgress();
 const key = `${index}-${dayIndex}`;
 
 if (progress[key]) {
