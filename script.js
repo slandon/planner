@@ -1,3 +1,17 @@
+const strengthRoutine = [
+  "Squats – 3x8",
+  "Deadlifts – 3x6",
+  "Lunges – 3x10 each leg",
+  "Core (planks) – 3x45s"
+];
+
+const mobilityRoutine = [
+  "Hip flexor stretch – 1 min each side",
+  "Hamstring stretch – 1 min",
+  "Glute stretch – 1 min each side",
+  "Ankle mobility – 10 reps each side"
+];
+
 const startDate = new Date("2026-04-27");
 const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -56,6 +70,12 @@ const dateDiv = document.createElement("div");
 const noteDiv = document.createElement("div");
 const mileageDiv = document.createElement("div");
 const calendar = document.createElement("div");
+const detailsDiv = document.createElement("div");
+detailsDiv.style.marginTop = "20px";
+detailsDiv.style.padding = "15px";
+detailsDiv.style.background = "white";
+detailsDiv.style.borderRadius = "12px";
+detailsDiv.style.boxShadow = "0 2px 6px rgba(0,0,0,0.05)";
 
 headerCard.className = "header-card";
 calendar.className = "calendar";
@@ -67,6 +87,7 @@ headerCard.appendChild(noteDiv);
 headerCard.appendChild(mileageDiv);
 app.appendChild(headerCard);
 app.appendChild(calendar);
+app.appendChild(detailsDiv);
 
 // dropdown
 trainingPlan.forEach((w, i) => {
@@ -83,6 +104,23 @@ function renderWeek(index) {
   // header
   dateDiv.innerHTML = `<div class="week-title">Week ${week.week}</div>
   <div>${getWeekRange(week.week)}</div>`;
+  div.style.cursor = "pointer";
+
+div.addEventListener("click", () => {
+  if (day.includes("strength")) {
+    detailsDiv.innerHTML = `
+      <strong>Strength Routine</strong><br><br>
+      ${strengthRoutine.map(e => `• ${e}`).join("<br>")}
+    `;
+  } else if (day.includes("Recover")) {
+    detailsDiv.innerHTML = `
+      <strong>Mobility Routine</strong><br><br>
+      ${mobilityRoutine.map(e => `• ${e}`).join("<br>")}
+    `;
+  } else {
+    detailsDiv.innerHTML = `<strong>${day}</strong>`;
+  }
+});
 
   noteDiv.innerText = week.note || "";
 
