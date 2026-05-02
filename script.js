@@ -68,7 +68,23 @@ Hold 20–30 seconds
 
 const startDate = new Date("2026-04-27");
 const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const raceDate = new Date("2026-11-01");
+function updateCountdown() {
+  const today = new Date();
+  const diffTime = raceDate - today;
 
+  const days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  const countdownEl = document.getElementById("countdown");
+
+  if (days > 0) {
+    countdownEl.innerText = ` — ${days} days to race day`;
+  } else if (days === 0) {
+    countdownEl.innerText = " — Race Day!";
+  } else {
+    countdownEl.innerText = " — Completed 🎉";
+  }
+}
 function getWeekRange(weekNumber) {
   const start = new Date(startDate);
   start.setDate(start.getDate() + (weekNumber - 1) * 7);
@@ -208,3 +224,4 @@ div.addEventListener("click", () => {
 select.addEventListener("change", e => renderWeek(e.target.value));
 
 renderWeek(0);
+updateCountdown();
