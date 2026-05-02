@@ -146,6 +146,8 @@ function renderFullPlan() {
     const row = document.createElement("div");
     row.className = "full-row";
 
+    const rawIndex = getCurrentWeekIndex();
+const safeIndex = Math.max(0, Math.min(rawIndex, trainingPlan.length - 1));
     if (index === currentWeekIndex) {
       row.classList.add("current-week");
     }
