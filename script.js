@@ -160,6 +160,13 @@ function renderFullPlan() {
     const row = document.createElement("div");
     row.className = "full-row";
 
+    row.style.cursor = "pointer";
+
+row.addEventListener("click", () => {
+  select.value = index;
+  renderWeek(index);
+});
+
     // highlight current week
     if (index === safeIndex) {
       row.classList.add("current-week");
