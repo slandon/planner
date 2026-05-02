@@ -180,43 +180,7 @@ function getCurrentWeekIndex() {
 }
 function renderWeek(index) {
   const week = trainingPlan[index];
-function renderFullPlan() {
-  fullPlanDiv.innerHTML = "<h3>Full Training Plan</h3>";
 
-  const grid = document.createElement("div");
-  grid.className = "full-grid";
-
-  trainingPlan.forEach((week) => {
-    const row = document.createElement("div");
-    row.className = "full-row";
-
-    const label = document.createElement("div");
-    label.className = "full-week";
-    label.innerText = `W${week.week}`;
-
-    row.appendChild(label);
-
-    week.days.forEach(day => {
-      const cell = document.createElement("div");
-      cell.className = "full-cell";
-
-      // shorten text for compact view
-      let short = day
-        .replace(" mi", "")
-        .replace("Recovery/mobility", "Rec")
-        .replace("Rest", "R")
-        .replace("PT", "PT")
-        .replace(" + strength", "+S");
-
-      cell.innerText = short;
-      row.appendChild(cell);
-    });
-
-    grid.appendChild(row);
-  });
-
-  fullPlanDiv.appendChild(grid);
-}
   // header
 const currentWeekIndex = getCurrentWeekIndex();
 
@@ -278,6 +242,58 @@ const safeIndex = Math.max(0, Math.min(currentWeekIndex, trainingPlan.length - 1
 
 // set dropdown to that week
 select.value = safeIndex;
+
+function renderFullPlan() {
+  fullPlanDiv.innerHTML = "<h3>Full Training Plan</h3>";
+
+  const grid = document.createElement("div");
+  grid.className = "full-grid";
+
+  const currentWeekIndex = getCurrentWeekIndex();
+
+  trainingPlan.forEach((week, index) => {
+    const row = document.createElement("div");
+    row.className = "full-row";
+
+    // 👉 highlight current week
+    if (index === currentWeekIndex) {
+      row.classList.add("current-week");
+    }
+
+    // 👉 calculate mileage
+    let total = 0;
+    week.days.forEach(day => {
+      const match = day.match(/[\d.]+/);
+      if (match) total += parseFloat(match[0]);
+    });
+
+    // 👉 week label with mileage
+    const label = document.createElement("div");
+    label.className = "full-week";
+    label.innerText = `W${week.week} (${total.toFixed(1)})`;
+
+    row.appendChild(label);
+
+    week.days.forEach(day => {
+      const cell = document.createElement("div");
+      cell.className = "full-cell";
+
+      let short = day
+        .replace(" mi", "")
+        .replace("Recovery/mobility", "Rec")
+        .replace("Rest", "R")
+        .replace("PT", "PT")
+        .replace(" + strength", "+S");
+
+      cell.innerText = short;
+      row.appendChild(cell);
+    });
+
+    grid.appendChild(row);
+  });
+
+  fullPlanDiv.appendChild(grid);
+}
 
 // render it
 renderWeek(safeIndex);
