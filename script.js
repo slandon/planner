@@ -105,24 +105,6 @@ function renderWeek(index) {
   // header
   dateDiv.innerHTML = `<div class="week-title">Week ${week.week}</div>
   <div>${getWeekRange(week.week)}</div>`;
-  div.style.cursor = "pointer";
-
-div.addEventListener("click", () => {
-  if (day.includes("strength")) {
-    detailsDiv.innerHTML = `
-      <strong>Strength Routine</strong><br><br>
-      ${strengthRoutine.map(e => `• ${e}`).join("<br>")}
-    `;
-  } else if (day.includes("Recover")) {
-    detailsDiv.innerHTML = `
-      <strong>Mobility Routine</strong><br><br>
-      ${mobilityRoutine.map(e => `• ${e}`).join("<br>")}
-    `;
-  } else {
-    detailsDiv.innerHTML = `<strong>${day}</strong>`;
-  }
-});
-
   noteDiv.innerText = week.note || "";
 
   // mileage
@@ -142,7 +124,23 @@ div.addEventListener("click", () => {
   week.days.forEach((day, i) => {
 const div = document.createElement("div");
 div.className = "day";
+div.style.cursor = "pointer";
 
+div.addEventListener("click", () => {
+  if (day.includes("strength")) {
+    detailsDiv.innerHTML = `
+      <strong>Strength Routine</strong><br><br>
+      ${strengthRoutine.map(e => `• ${e}`).join("<br>")}
+    `;
+  } else if (day.includes("Recover")) {
+    detailsDiv.innerHTML = `
+      <strong>Mobility Routine</strong><br><br>
+      ${mobilityRoutine.map(e => `• ${e}`).join("<br>")}
+    `;
+  } else {
+    detailsDiv.innerHTML = `<strong>${day}</strong>`;
+  }
+});
     // highlight today
     div.style.border = i === todayIndex ? "2px solid black" : "1px solid #ccc";
 
