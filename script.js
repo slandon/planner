@@ -169,14 +169,22 @@ trainingPlan.forEach((w, i) => {
 });
 
 // render
+function getCurrentWeekIndex() {
+  const today = new Date();
+  const diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+  return Math.floor(diffDays / 7);
+}
 function renderWeek(index) {
   const week = trainingPlan[index];
 
   // header
-  dateDiv.innerHTML = `<div class="week-title">Week ${week.week}</div>
-  <div>${getWeekRange(week.week)}</div>`;
-  noteDiv.innerText = week.note || "";
+const currentWeekIndex = getCurrentWeekIndex();
 
+const weekLabel =
+  index === currentWeekIndex ? "This Week" : `Week ${week.week}`;
+
+dateDiv.innerHTML = `<div class="week-title">${weekLabel}</div>
+<div>${getWeekRange(week.week)}</div>`;
   // mileage
   let total = 0;
   week.days.forEach(day => {
