@@ -231,5 +231,14 @@ div.addEventListener("click", () => {
 
 select.addEventListener("change", e => renderWeek(e.target.value));
 
-renderWeek(0);
+const currentWeekIndex = getCurrentWeekIndex();
+
+// clamp so it doesn’t go negative or past your plan
+const safeIndex = Math.max(0, Math.min(currentWeekIndex, trainingPlan.length - 1));
+
+// set dropdown to that week
+select.value = safeIndex;
+
+// render it
+renderWeek(safeIndex);
 updateCountdown();
