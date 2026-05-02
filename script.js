@@ -242,11 +242,6 @@ row.addEventListener("click", () => {
   renderWeek(index);
 });
 
-    // highlight current week
-    if (index === safeIndex) {
-      row.classList.add("current-week");
-    }
-
     // calculate mileage
     let total = 0;
     week.days.forEach(day => {
@@ -257,7 +252,9 @@ row.addEventListener("click", () => {
     const label = document.createElement("div");
     label.className = "full-week";
     label.innerText = `W${week.week} (${total.toFixed(1)})`;
-
+if (index === safeIndex) {
+  label.classList.add("current-week");
+}
     row.appendChild(label);
 
     week.days.forEach((day, dayIndex) => {
