@@ -50,10 +50,16 @@ const trainingPlan = [
 const longRuns = [9,10,11,8,12,13,14,10,15,16.5];
 longRuns.forEach((lr, i) => {
   trainingPlan.push({
-    week: 7 + i,
+    week: 13 + i,
     days: ["4–5 mi", "PT", "5–6 mi + strength", "Recovery/mobility", "3–4 mi", "Rest", `${lr} mi`]
   });
 });
+trainingPlan.push(
+  { week: 23, days: ["4 mi", "PT", "4–5 mi + light strength", "Recovery/mobility", "3 mi", "Rest", "14 mi"] },
+  { week: 24, days: ["4 mi", "PT", "4 mi + light strength", "Recovery/mobility", "3 mi", "Rest", "10 mi"] },
+  { week: 25, days: ["3 mi", "PT", "3 mi + light strength", "Recovery/mobility", "2–3 mi", "Rest", "6–8 mi"] },
+  { week: 26, note: "Race Week", days: ["3 mi", "PT (light)", "2–3 mi", "Recovery/mobility", "2 mi", "Rest", "Marathon"] }
+);
 
 // --- UI ---
 const app = document.getElementById("app");
