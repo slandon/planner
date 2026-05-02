@@ -58,3 +58,26 @@ padding: 12px;
 font-size: 14px;
 text-align: center;
 }
+.full-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.full-row {
+  display: grid;
+  grid-template-columns: 50px repeat(7, 1fr);
+  gap: 4px;
+  font-size: 12px;
+}
+
+.full-week {
+  font-weight: 600;
+}
+
+.full-cell {
+  background: white;
+  border-radius: 6px;
+  padding: 4px;
+  text-align: center;
+}
