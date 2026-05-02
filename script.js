@@ -216,13 +216,7 @@ function renderWeek(index) {
   // re-render week to update UI
   renderWeek(index);
 });
-    const progress = getProgress();
-const key = `${index}-${i}`;
-
-if (progress[key]) {
-  div.style.opacity = "0.5";
-  div.style.textDecoration = "line-through";
-}
+   
 
     div.innerHTML = `<strong>${daysOfWeek[i]}</strong><br>${day}`;
     calendar.appendChild(div);
@@ -268,10 +262,16 @@ row.addEventListener("click", () => {
 
     row.appendChild(label);
 
-    week.days.forEach(day => {
+    week.days.forEach((day, dayIndex) => {
       const cell = document.createElement("div");
       cell.className = "full-cell";
+const progress = getProgress();
+const key = `${index}-${dayIndex}`;
 
+if (progress[key]) {
+  cell.style.backgroundColor = "#c8e6c9";
+  cell.style.textDecoration = "line-through";
+}
       const short = day
         .replace(" mi", "")
         .replace("Recovery/mobility", "Rec")
