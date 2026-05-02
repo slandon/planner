@@ -114,8 +114,14 @@ function renderWeek(index) {
   calendar.innerHTML = "";
 
   week.days.forEach((day, i) => {
+  const todayIndex = (new Date().getDay() + 6) % 7;
     const div = document.createElement("div");
     div.className = "day";
+    if (i === todayIndex) {
+  div.style.border = "2px solid black";
+} else {
+  div.style.border = "1px solid #ccc";
+}
     div.style.cursor = "pointer";
 
     div.addEventListener("click", () => {
